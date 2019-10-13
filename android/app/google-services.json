@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "926550845135",
+    "firebase_url": "https://iskcon-trips.firebaseio.com",
+    "project_id": "iskcon-trips",
+    "storage_bucket": "iskcon-trips.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:926550845135:android:123e30b759c6e458e9b9ba",
+        "android_client_info": {
+          "package_name": "com.example.iskcon_trips"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "926550845135-q3n8bosqh652ac2im71ugvk3745ntprf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOoLYKSNQuC9EHgxLkASVn2edpNCrcVDU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "926550845135-q3n8bosqh652ac2im71ugvk3745ntprf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
