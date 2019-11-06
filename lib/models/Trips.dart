@@ -26,4 +26,5 @@ class Trips {
     Future<bool>createTrip(trip) async{
       return await dataRef.add(trip);
     }
+
 }
