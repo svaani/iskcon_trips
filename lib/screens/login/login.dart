@@ -13,9 +13,13 @@ class LoginState extends State<Login> {
   TextEditingController _loginCode = TextEditingController();
   LoginApi _api = LoginApi();
 
+  LoginState(){
+    _loginCode.text = "GG_BLR_4486";
+  }
+
   _submit(context) async {
-  //  if (await _api.login(_loginCode.text)) {
-    if(true){
+  if (await _api.login(_loginCode.text)) {
+//    if(true){
       Navigator.pop(context);
       Navigator.push(
         context,
