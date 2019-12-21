@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../messages/alert.dart';
 import './create_trip_api.dart';
 import '../schedule/schedule.dart';
 
@@ -36,6 +37,9 @@ class CreateTripState extends State<CreateTrip> {
     "TrOid" : "BLR_Or_01",
     "ZoneId" : "BLR_01"
     });
+    
+    Alert("Trip $_name Created");
+    // Future.delayed(Duration(seconds:2), );
     Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => (Schedule(uid))),

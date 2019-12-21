@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../messages/alert.dart';
 import './schedule_api.dart';
 import '../tasks/tasks.dart';
 
@@ -53,6 +54,7 @@ class ScheduleState extends State<Schedule> {
       "Details" : _details.text,
       "Time" : _hh.toString() +":"+_mm.toString()
     });
+    Alert("Schedule Created!");
   }
   @override
   Widget build(BuildContext context) {
