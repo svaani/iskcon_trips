@@ -11,43 +11,51 @@ class CreateTrip extends StatefulWidget {
 }
 
 class CreateTripState extends State<CreateTrip> {
-
   TextEditingController _name = TextEditingController();
-  
+
   TextEditingController _duration = TextEditingController();
 
-
   TextEditingController _startDate = TextEditingController();
-  
+
   TextEditingController _details = TextEditingController();
 
+  GlobalKey<ScaffoldState> scaffoldkey = GlobalKey<ScaffoldState>();
+
+  CreateTripState() {
+    Alert.setKey(scaffoldkey);
+  }
+
   var _tripType = 0, _hostedType = 0;
-  
+
   CreateTripApi _api = CreateTripApi();
 
-  _submit(){
-    var uid =DateTime.now().millisecond.toString();
-    _api.createTrip({"Name":_name.text,
-    "TripType":_tripType.toString(),
-    "HostedType":_hostedType.toString(),
-    "Days":_duration.text,
-    "StartDate":_startDate.text,
-    "Details":_details.text,
-    "TrUid":uid,
-    "TrOid" : "BLR_Or_01",
-    "ZoneId" : "BLR_01"
+  _submit() {
+    var uid = DateTime.now().millisecond.toString();
+    _api.createTrip({
+      "Name": _name.text,
+      "TripType": _tripType.toString(),
+      "HostedType": _hostedType.toString(),
+      "Days": _duration.text,
+      "StartDate": _startDate.text,
+      "Details": _details.text,
+      "TrUid": uid,
+      "TrOid": "BLR_Or_01",
+      "ZoneId": "BLR_01"
     });
-    
-    Alert("Trip $_name Created");
-    // Future.delayed(Duration(seconds:2), );
-    Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => (Schedule(uid))),
-                  );
+
+    Alert("Trip Created");
+    Future.delayed(Duration(seconds: 1), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => (Schedule(uid))),
+      );
+    });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldkey,
       appBar: AppBar(
         title: Text("Create Trip"),
       ),
@@ -107,25 +115,23 @@ class CreateTripState extends State<CreateTrip> {
             TextField(
               cursorWidth: 10,
               controller: _duration,
-        
               decoration: InputDecoration(labelText: 'Duration in Days:'),
             ),
             TextField(
               cursorWidth: 10,
               controller: _startDate,
-   
               decoration: InputDecoration(labelText: 'Trip Start Date:'),
             ),
             Padding(
               padding: const EdgeInsets.all(5),
-              child:TextField(
-              controller: _details,
-              maxLines: 8,
-              decoration: InputDecoration(
-                  hintText: "Enter Trip Description",
-                  border: OutlineInputBorder(),
-                  labelText: 'Details'),
-            ),
+              child: TextField(
+                controller: _details,
+                maxLines: 8,
+                decoration: InputDecoration(
+                    hintText: "Enter Trip Description",
+                    border: OutlineInputBorder(),
+                    labelText: 'Details'),
+              ),
             ),
             Align(
               heightFactor: 2.0,
@@ -133,7 +139,6 @@ class CreateTripState extends State<CreateTrip> {
               child: FloatingActionButton(
                 onPressed: () {
                   _submit();
-                  
                 },
                 child: Icon(Icons.done),
               ),

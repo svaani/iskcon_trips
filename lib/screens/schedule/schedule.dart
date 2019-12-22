@@ -23,12 +23,15 @@ class ScheduleState extends State<Schedule> {
   TextEditingController _whichDay = TextEditingController();
   TextEditingController _details = TextEditingController();
 
+  GlobalKey<ScaffoldState> scaffoldkey = GlobalKey<ScaffoldState>();
+
   var _hh = "00", _mm = "00";
 
   ScheduleApi _api = ScheduleApi();
 
   ScheduleState(TrUid) {
     _TrUid = TrUid;
+    Alert.setKey(scaffoldkey);
   }
 
   _addReset() {
